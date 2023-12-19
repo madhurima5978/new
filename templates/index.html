@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aspect-Based Sentiment Analysis Result</title>
+</head>
+<body>
+    <div class="intro">
+      <h1 class="logo-header">
+        <span class="logo">Sentiment</span><span class="logo"> Analysis</span>
+      </h1>
+    </div>
+
+    <header>
+      <h4>Sentiment Analysis</h4>
+    </header>
+    <h1>Aspect-Based Sentiment Analysis</h1>
+    <img src="{{ url_for('static', filename='emoji_satisfaction_meter.jpg') }}" alt="Emoji Satisfaction Meter" height="300px"width="500px">
+ <h1>Enter a Sentence</h1>
+    <form action="/" method="post">
+        <label for="input_text">Enter a sentence:</label>
+        <input type="text" id="input_text" name="input_text" required>
+        <button type="submit">Analyze</button>
+    </form>
+    
+</body>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</html>
+
+
+
+

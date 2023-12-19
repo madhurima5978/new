@@ -1,0 +1,66 @@
+<h1>Aspect-Based Sentiment Analysis Result</h1>
+    
+    <p><strong>Input Text:</strong> {{ input_text }}</p>
+
+    <h2>Aspect Sentiments:</h2>
+    <ul>
+        {% for aspect in result.split(', ') %}
+            {% if aspect %}
+                {% set aspect_parts = aspect.split(':') %}
+                <li>
+                    <strong>Aspect:</strong> {{ aspect_parts[0] }}<br>
+                    <strong>Sentiment:</strong> {{ aspect_parts[1] }}<br>
+                    {% if aspect_parts[1] == "positive" %}
+                        <img src="{{ url_for('static', filename='positive_image.PNG') }}" alt="Positive Image">
+                    {% elif aspect_parts[1] == "negative" %}
+                        <img src="{{ url_for('static', filename='negative_image.PNG') }}" alt="Negative Image">
+                    {% else %}
+                    <img src="{{ url_for('static', filename='neutral_image.PNG') }}" alt="Neutral Image">
+                    {% endif %}
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>-->
+    <!--
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Aspect-Based Sentiment Analysis Result</title>
+    </head>
+    <body>
+        {% if result and result.input_text %}
+        <p><strong>Input Text:</strong> {{ result.input_text }}</p>
+        {% set aspects = result.predicted_aspects %}
+        {% set sentiments = result.predicted_sentiment %}
+        <h2>Predicted Aspect Sentiments</h2>
+        <ul>
+            {% for aspect in aspects %}
+                <li>
+                    <strong>Aspect:</strong> {{ aspect }}<br>
+                    <strong>Sentiment:</strong> {{ sentiments[loop.index] }}<br>
+                    {% if sentiments[loop.index] == "positive" %}
+                        <img src="{{ url_for('static', filename='positive_image.PNG') }}" alt="Positive Image">
+                    {% elif sentiments[loop.index] == "negative" %}
+                        <img src="{{ url_for('static', filename='negative_image.PNG') }}" alt="Negative Image">
+                    {% else %}
+                        <img src="{{ url_for('static', filename='neutral_image.PNG') }}" alt="Neutral Image">
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    
+        <h2>Model Evaluation Metrics</h2>
+        <ul>
+            <li>
+                <strong>Aspect Term F1 Score:</strong> {{ aspect_f1 }}
+            </li>
+            <li>
+                <strong>Sentiment Accuracy:</strong> {{ sentiment_accuracy }}
+            </li>
+        </ul>
+    </body>
+    </html>
+-->
